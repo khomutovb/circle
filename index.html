@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+
+        .menu-hover {
+            width: 100%;
+            background: linear-gradient(79.54deg, #FC5000 0%, #FF7E42 40.34%, #FF7E42 68.27%, #FC5000 99.3%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-hover__container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-size: 24px;
+            line-height: 36px;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        .menu-hover__item {
+            padding: 268px 46px;
+            display: flex;
+            align-items: center;
+            z-index: 11;
+            color: #fff;
+        }
+
+        .circles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .circles__item {
+            margin: auto;
+            border: 1px solid #FFB492;
+            border-radius: 50%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            top: 0;
+            opacity: 0.5;
+        }
+
+        .circles__item:nth-child(1) {
+            width: 171px;
+            height: 171px;
+            transform: translate(-30px, 0px);
+        }
+
+        .circles__item:nth-child(2) {
+            width: 313px;
+            height: 313px;
+            transform: translate(-80px, 0px);
+        }
+
+        .circles__item:nth-child(3) {
+            width: 445px;
+            height: 445px;
+            transform: translate(-120px, 0px);
+        }
+
+        .circles__item:nth-child(4) {
+            width: 655px;
+            height: 655px;
+            transform: translate(-200px, 0px);
+        }
+
+        .cursor {
+            position: absolute;
+            border-radius: 50%;
+            width: 325px;
+            height: 325px;
+            background-size: cover;
+            transition: all 300ms ease-out;
+            background-position: center;
+            display: block;
+            pointer-events: none;
+            margin: auto;
+            left: calc(50% - 724px);
+            top: 0;
+            bottom: 0;
+            will-change: left, top;
+            z-index: 10;
+            animation-name: bobbingAnim;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+            -webkit-animation-name: bobbingAnim;
+            -webkit-animation-duration: 4s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-play-state: running;
+        }
+
+        .hover-item__link {
+            max-width: 180px;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 27px;
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            transition: color 250ms ease;
+            text-align: left;
+        }
+
+
+        .hover-item__count {
+            color: #fff;
+            font-size: 14px;
+            line-height: 17px;
+            margin-right: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .menu-hover__container {
+                flex-direction: column;
+            }
+
+            .menu-hover__item {
+                margin: auto;
+            }
+        }
+
+        @keyframes bobbingAnim {
+            0% {
+                transform: translate(0px, 0px);
+                animation-timing-function: ease-in-out
+            }
+
+            50% {
+                transform: translate(12px, 12px);
+                animation-timing-function: ease-in-out
+            }
+
+            100% {
+                transform: translate(0px, 0px);
+                animation-timing-function: ease-in-out
+            }
+        }
+
+        @-webkit-keyframes bobbingAnim {
+            0% {
+                -webkit-transform: translate(0px, 0px);
+                -webkit-animation-timing-function: ease-in-out
+            }
+
+            50% {
+                -webkit-transform: translate(12px, 12px);
+                -webkit-animation-timing-function: ease-in-out
+            }
+
+            100% {
+                -webkit-transform: translate(0px, 0px);
+                -webkit-animation-timing-function: ease-in-out
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="menu-hover" id="menu-hover">
+        <div class="menu-hover__container">
+            <div class="menu-hover__item hover-item" data-url="img.png">
+                <span class="hover-item__count">01&nbsp;&nbsp;/</span>
+                <a href="#url" class="hover-item__link">Cухие строительные смеси</a>
+            </div>
+            <div class="menu-hover__item hover-item" data-url="img2.png">
+                <span class="hover-item__count">02&nbsp;&nbsp;/</span>
+                <a href="#url" class="hover-item__link">Жидкие строительные материалы</a>
+            </div>
+            <div class="menu-hover__item hover-item" data-url="img.png">
+                <span class="hover-item__count">03&nbsp;&nbsp;/</span>
+                <a href="#url" class="hover-item__link">Теплые системы</a>
+            </div>
+            <div class="menu-hover__item hover-item" data-url="img2.png">
+                <span class="hover-item__count">04&nbsp;&nbsp;/</span>
+                <a href="#url" class="hover-item__link">Полимеры</a>
+            </div>
+            <div class="menu-hover__item hover-item" data-url="img.png">
+                <span class="hover-item__count">05&nbsp;&nbsp;/</span>
+                <a href="#url" class="hover-item__link">Материалы для промышленности</a>
+            </div>
+            <div class="cursor object" id="cursor"></div>
+            <div class="circles">
+                <div class="circles__item"></div>
+                <div class="circles__item"></div>
+                <div class="circles__item"></div>
+                <div class="circles__item"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        let t = document.getElementById("cursor");
+        let hoverLink = document.querySelectorAll(".menu-hover__item");
+        let urlfirst = hoverLink[0].getAttribute("data-url");
+        let reg = $('.menu-hover__container'), obj = $('.cursor');
+        t.style.backgroundImage = "url(" + urlfirst + ")";
+        reg.on('mousemove', function (e) {
+            let p = {
+                // region size
+                rW: reg.width(), rH: reg.height(),
+                // object size
+                oW: obj.width(), oH: obj.height(),
+                // mouse position
+                mY: e.pageY - reg.offset().top, mX: e.pageX - reg.offset().left,
+                // object position (center)
+                oY: obj.width() / 2, oX: obj.height() / 2
+            };
+            obj.css({
+                'top': p.mY <= p.oX ? 30 : p.mY >= p.rH - p.oX ? p.rH - p.oH - 30 : p.mY - p.oX,
+                'left': p.mX <= p.oY ? 0 : p.mX >= p.rW - p.oY ? p.rW - p.oW : p.mX - p.oY,
+                'margin': 0
+            });
+        });
+        reg.on('mouseleave', function (e) {
+            t.style.backgroundImage = "url(" + urlfirst + ")";
+            t.style.top = "140px";
+            t.style.left = "calc(50% - 724px";
+        });
+        function n() {
+            t.classList.add("hover")
+        }
+        function s() {
+            t.classList.remove("hover")
+        }
+        function o(t) {
+            t.addEventListener("mouseover", n), t.addEventListener("mouseout", s)
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            t.style.backgroundImage = "url(" + urlfirst + ")";
+            for (let i = 0; i < hoverLink.length; i++) {
+                o(hoverLink[i]);
+                let url = hoverLink[i].getAttribute("data-url");
+                hoverLink[i].addEventListener('mouseenter', function () {
+                    t.style.backgroundImage = "url(" + url + ")";
+                });
+            }
+        })
+    </script>
+    <!--     <script>
+        var canvas = document.getElementById('circles');
+
+        // resize the canvas to fill browser window dynamically
+        window.addEventListener('resize', resizeCanvas, false);
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight / 2;
+            drawStuff();
+        }
+        resizeCanvas();
+
+        function drawStuff() {
+
+            if (canvas.getContext) {
+
+                var context = canvas.getContext('2d');
+                var centerX = canvas.width / 2;
+                var centerY = canvas.height / 2;
+                var radius = 70;
+
+                context.fillStyle = 'rgba(0,0,0,0.0)';
+                context.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+                context.beginPath();
+                context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+
+                context.lineWidth = 1;
+                context.strokeStyle = "rgba(255,255,255,0.4)";
+                context.stroke();
+            
+
+            }
+        }
+    </script> -->
+    <!--     <script>
+        gsap.set(".cursor", { xPercent: -50, yPercent: -50 });
+
+        var cursor = document.querySelector(".cursor");
+        var block = document.querySelector(".menu-hover__container");
+        var pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        var mouse = { x: pos.x, y: pos.y };
+        var speed = 0.1;
+
+        var xSet = gsap.quickSetter(cursor, "x", "px");
+        var ySet = gsap.quickSetter(cursor, "y", "px");
+
+        window.addEventListener("mousemove", e => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        gsap.ticker.add(() => {
+            var dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+
+            pos.x += (mouse.x - pos.x) * dt;
+            pos.y += (mouse.y - pos.y) * dt;
+            xSet(pos.x);
+            ySet(pos.y);
+        });
+
+    </script> -->
+</body>
+
+</html>
