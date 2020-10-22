@@ -18,7 +18,9 @@
             position: relative;
             overflow: hidden;
         }
-
+        .hidden{
+            display: none;
+        }
         .menu-hover__container {
             position: relative;
             width: 100%;
@@ -40,47 +42,83 @@
 
         .circles {
             position: absolute;
-            width: 100%;
+            width: 1000px;
             height: 100%;
             top: 0;
             left: 0;
+            margin: auto;
+            right: 0;
         }
 
         .circles__item {
-            margin: auto;
             border: 1px solid #FFB492;
             border-radius: 50%;
+            will-change: left;
             left: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            position: absolute;
             top: 0;
+            bottom: 0;
+            position: absolute;
+            margin: auto;
+        }
+
+        .circles__item.first {
+            width: 171px;
+            height: 171px;
+            transition: left 3000ms ease-out;
+            animation-name: bobbingAnim;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+            -webkit-animation-name: bobbingAnim;
+            -webkit-animation-duration: 3s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-play-state: running;
+            opacity: 0.3;
+        }
+
+        .circles__item.second {
+            width: 313px;
+            height: 313px;
+            transition: left 3200ms ease-out;
+            animation-name: bobbingAnim;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+            -webkit-animation-name: bobbingAnim;
+            -webkit-animation-duration: 4s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-play-state: running;
             opacity: 0.5;
         }
 
-        .circles__item:nth-child(1) {
-            width: 171px;
-            height: 171px;
-            transform: translate(-30px, 0px);
-        }
-
-        .circles__item:nth-child(2) {
-            width: 313px;
-            height: 313px;
-            transform: translate(-80px, 0px);
-        }
-
-        .circles__item:nth-child(3) {
+        .circles__item.third {
             width: 445px;
             height: 445px;
-            transform: translate(-120px, 0px);
+            transition: left 3500ms ease-out;
+            animation-name: bobbingAnim;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+            -webkit-animation-name: bobbingAnim;
+            -webkit-animation-duration: 5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-play-state: running;
+            opacity: 0.7;
         }
 
-        .circles__item:nth-child(4) {
+        .circles__item.four {
             width: 655px;
             height: 655px;
-            transform: translate(-200px, 0px);
+            transition: left 3700ms ease-out;
+            animation-name: bobbingAnim;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+            -webkit-animation-name: bobbingAnim;
+            -webkit-animation-duration: 6s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-play-state: running;
+            opacity: 0.9;
         }
 
         .cursor {
@@ -89,7 +127,7 @@
             width: 325px;
             height: 325px;
             background-size: cover;
-            transition: all 300ms ease-out;
+            transition: left 300ms ease-out, top 300ms ease-out, background 300ms ease-out;
             background-position: center;
             display: block;
             pointer-events: none;
@@ -130,6 +168,7 @@
             font-size: 14px;
             line-height: 17px;
             margin-right: 15px;
+            pointer-events: none;
         }
 
         @media (max-width: 768px) {
@@ -149,7 +188,7 @@
             }
 
             50% {
-                transform: translate(12px, 12px);
+                transform: translate(0, 12px);
                 animation-timing-function: ease-in-out
             }
 
@@ -166,7 +205,7 @@
             }
 
             50% {
-                -webkit-transform: translate(12px, 12px);
+                -webkit-transform: translate(0, 12px);
                 -webkit-animation-timing-function: ease-in-out
             }
 
@@ -179,14 +218,6 @@
 </head>
 
 <body>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <div class="menu-hover" id="menu-hover">
         <div class="menu-hover__container">
             <div class="menu-hover__item hover-item" data-url="img.png">
@@ -209,57 +240,94 @@
                 <span class="hover-item__count">05&nbsp;&nbsp;/</span>
                 <a href="#url" class="hover-item__link">Материалы для промышленности</a>
             </div>
+            <div class="hidden">
+                <img src="img.png">
+                <img src="img2.png">
+            </div>
             <div class="cursor object" id="cursor"></div>
             <div class="circles">
-                <div class="circles__item"></div>
-                <div class="circles__item"></div>
-                <div class="circles__item"></div>
-                <div class="circles__item"></div>
+                <div class="circles__item first"></div>
+                <div class="circles__item second"></div>
+                <div class="circles__item third"></div>
+                <div class="circles__item four"></div>
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         let t = document.getElementById("cursor");
         let hoverLink = document.querySelectorAll(".menu-hover__item");
         let urlfirst = hoverLink[0].getAttribute("data-url");
-        let reg = $('.menu-hover__container'), obj = $('.cursor');
+        let reg = $('.menu-hover__container'), obj = $('.cursor'), circles = $(".circles"), circle1 = $('.circles__item.first'), circle2 = $('.circles__item.second'), circle3 = $('.circles__item.third'), circle4 = $('.circles__item.four');
         t.style.backgroundImage = "url(" + urlfirst + ")";
         reg.on('mousemove', function (e) {
             let p = {
                 // region size
                 rW: reg.width(), rH: reg.height(),
+                // circles size
+                csW: circles.width(), csH: circles.height(),
                 // object size
                 oW: obj.width(), oH: obj.height(),
-                // mouse position
+                // circle1 size
+                c1W: circle1.width(), c1H: circle1.height(),
+                // circle2 size
+                c2W: circle2.width(), c2H: circle2.height(),
+                // circle3 size
+                c3W: circle3.width(), c3H: circle3.height(),
+                // circle4 size
+                c4W: circle4.width(), c4H: circle4.height(),
+                // mouse position region
                 mY: e.pageY - reg.offset().top, mX: e.pageX - reg.offset().left,
+                // mouse position circles
+                cmY: e.pageY - circles.offset().top, cmX: e.pageX - circles.offset().left,
                 // object position (center)
-                oY: obj.width() / 2, oX: obj.height() / 2
+                oY: obj.width() / 2, oX: obj.height() / 2,
+                // circle position (center)
+                c1Y: circle1.width() / 2, c1X: circle1.height() / 2,
+                // circle position (center)
+                c2Y: circle2.width() / 2, c2X: circle2.height() / 2,
+                // circle position (center)
+                c3Y: circle3.width() / 2, c3X: circle3.height() / 2,
+                // circle position (center)
+                c4Y: circle4.width() / 2, c4X: circle4.height() / 2,
             };
             obj.css({
                 'top': p.mY <= p.oX ? 30 : p.mY >= p.rH - p.oX ? p.rH - p.oH - 30 : p.mY - p.oX,
                 'left': p.mX <= p.oY ? 0 : p.mX >= p.rW - p.oY ? p.rW - p.oW : p.mX - p.oY,
                 'margin': 0
             });
+            circle1.css({
+                /* 'top': p.cmY <= p.c1X ? 130 : p.cmY >= p.csH - p.c1X ? p.csH - p.c1H - 130 : p.cmY - p.c1X, */
+                'left': p.cmX <= p.c1Y ? 80 : p.cmX >= p.csW - p.c1Y ? p.csW - p.c1W - 80 : p.cmX - p.c1Y
+            });
+            circle2.css({
+                /* 'top': p.cmY <= p.c2X ? 100 : p.cmY >= p.csH - p.c2X ? p.csH - p.c2H - 100 : p.cmY - p.c2X, */
+                'left': p.cmX <= p.c2Y ? 50 : p.cmX >= p.csW - p.c2Y ? p.csW - p.c2W - 50 : p.cmX - p.c2Y
+            });
+            circle3.css({
+                /* 'top': p.cmY <= p.c3X ? 40 : p.cmY >= p.csH - p.c3X ? p.csH - p.c3H - 40 : p.cmY - p.c3X, */
+                'left': p.cmX <= p.c3Y ? 20 : p.cmX >= p.csW - p.c3Y ? p.csW - p.c3W - 20 : p.cmX - p.c3Y
+            });
+            circle4.css({
+                'left': p.cmX <= p.c4Y ? 0 : p.cmX >= p.csW - p.c4Y ? p.csW - p.c4W : p.cmX - p.c4Y
+            });
         });
         reg.on('mouseleave', function (e) {
             t.style.backgroundImage = "url(" + urlfirst + ")";
             t.style.top = "140px";
             t.style.left = "calc(50% - 724px";
+            circle1.css({
+                'left': 0
+            });
+            circle2.css({
+                'left': 0
+            });
+            circle3.css({
+                'left': 0
+            });
+            circle4.css({
+                'left': 0
+            });
         });
         function n() {
             t.classList.add("hover")
@@ -281,69 +349,6 @@
             }
         })
     </script>
-    <!--     <script>
-        var canvas = document.getElementById('circles');
-
-        // resize the canvas to fill browser window dynamically
-        window.addEventListener('resize', resizeCanvas, false);
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight / 2;
-            drawStuff();
-        }
-        resizeCanvas();
-
-        function drawStuff() {
-
-            if (canvas.getContext) {
-
-                var context = canvas.getContext('2d');
-                var centerX = canvas.width / 2;
-                var centerY = canvas.height / 2;
-                var radius = 70;
-
-                context.fillStyle = 'rgba(0,0,0,0.0)';
-                context.fillRect(0, 0, window.innerWidth, window.innerHeight);
-
-                context.beginPath();
-                context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-
-                context.lineWidth = 1;
-                context.strokeStyle = "rgba(255,255,255,0.4)";
-                context.stroke();
-            
-
-            }
-        }
-    </script> -->
-    <!--     <script>
-        gsap.set(".cursor", { xPercent: -50, yPercent: -50 });
-
-        var cursor = document.querySelector(".cursor");
-        var block = document.querySelector(".menu-hover__container");
-        var pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-        var mouse = { x: pos.x, y: pos.y };
-        var speed = 0.1;
-
-        var xSet = gsap.quickSetter(cursor, "x", "px");
-        var ySet = gsap.quickSetter(cursor, "y", "px");
-
-        window.addEventListener("mousemove", e => {
-            mouse.x = e.x;
-            mouse.y = e.y;
-        });
-
-        gsap.ticker.add(() => {
-            var dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
-
-            pos.x += (mouse.x - pos.x) * dt;
-            pos.y += (mouse.y - pos.y) * dt;
-            xSet(pos.x);
-            ySet(pos.y);
-        });
-
-    </script> -->
 </body>
 
 </html>
